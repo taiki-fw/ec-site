@@ -1,8 +1,34 @@
-const Index = () => {
+import { Header } from "../components/Header";
+import { IProduct } from "../components/Product";
+import { ProductList } from "../components/ProductList";
+import { Footer } from "../components/Footer";
+
+type IndexProps = {
+  products: IProduct[];
+};
+
+const Index = (props: IndexProps) => {
   return (
-    <div className="app">
-      <p>Hello World!</p>
-    </div>
+    <>
+      <Header />
+      <main className="main">
+        <img
+          src="/static/aquarium.svg"
+          alt="aquarium"
+          className="background-image"
+        />
+        <div className="promotional-message">
+          <h3>REDISCOVER</h3>
+          <h2>Fishkeeping</h2>
+          <p>
+            An <strong>exclusive collection of bettas</strong> available for
+            everyone.
+          </p>
+        </div>
+        <ProductList products={props.products} />
+      </main>
+      <Footer />
+    </>
   );
 };
 
